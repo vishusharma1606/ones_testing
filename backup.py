@@ -6,8 +6,9 @@ from selenium.webdriver.common.keys import Keys
 
 
 
-class loginpage(unittest.TestCase):
+class SeleniumTest(unittest.TestCase):
 
+# url and credential login 
     def setUp(self):
         # self.driver = webdriver.Chrome()
         options = webdriver.ChromeOptions()
@@ -20,24 +21,29 @@ class loginpage(unittest.TestCase):
         driver.find_element('id', "password").send_keys("aviz@123")
         driver.find_element(By.XPATH, "//button[@type='submit']").click()
         time.sleep(5)
+        
+
+# Add users
 
     def testsearch1(self):
         driver = self.driver
         driver.find_element(By.XPATH, "//img[@alt='Users Icon']").click()
         driver.find_element(By.XPATH, "//button//span[text()='Add']").click()
         time.sleep(2)
-        driver.find_element("name", "username").send_keys("vishveksre")
+        driver.find_element("name", "username").send_keys("sre")
         driver.find_element("name", "password").send_keys("aviz@123")
         driver.find_element("name", "confirmPassword").send_keys("aviz@123")
-        driver.find_element("name", "firstName").send_keys("sre")
-        driver.find_element("name", "lastName").send_keys("sre")
+        driver.find_element("name", "firstName").send_keys("aviz")
+        driver.find_element("name", "lastName").send_keys("networks")
         driver.find_element(By.XPATH, "//button[text()='Save']").click()
         time.sleep(5)
         driver.find_element(By.XPATH, "//img[@src='/static/media/NewAvatar.9ac40ba1.svg']").click()
         time.sleep(2)
         driver.find_element(By.XPATH, "//li[@tabindex='-1']").click()
         time.sleep(2)
+        driver.close()
         
+# suspend user and restore user and delete user
 
     def testsearch2(self):
         driver = self.driver
@@ -69,6 +75,9 @@ class loginpage(unittest.TestCase):
         time.sleep(2)
         driver.find_element(By.XPATH, "//li[@tabindex='-1']").click()
         time.sleep(3)
+        driver.close()
+
+# check Auto Refresh Interval and Application Idle Time in Minutes
 
     def testsearch3(self):
         driver = self.driver
@@ -94,10 +103,58 @@ class loginpage(unittest.TestCase):
         time.sleep(2)
         driver.find_element(By.XPATH, "//li[@tabindex='-1']").click()
         time.sleep(2)
+        driver.close()
 
-# reset password
+# refresh button 
+    def testsearch4(self):
+        driver = self.driver
+        driver.find_element(By.XPATH, "//img[@alt='Refresh Icon']").click()
+        time.sleep(5)
+        driver.close()
 
-    def testsearch4(self): 
+# support portal 
+    def testsearch5(self):
+        driver = self.driver
+        driver.find_element(By.XPATH, "//a[@href='https://support.aviznetworks.com']").click()
+        time.sleep(3)
+        driver.close()
+
+# documentation
+    def testsearch6(self):
+        driver = self.driver
+        driver.find_element(By.XPATH, "//a[@href='https://aviznetworks.gitbook.io/ones-user-guide/']").click()
+        time.sleep(3)
+        driver.close()
+
+# Dashboard functionality check
+    def testsearch7(self):
+        driver = self.driver
+        driver.find_element(By.XPATH, "//button[text()='Hardware']").click()
+        # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(3)
+        # driver.execute_script("window.scrollTo(0, 0);")
+        driver.find_element(By.XPATH, "//button[text()='Components']").click()
+        # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(3)
+        # driver.execute_script("window.scrollTo(0, 0);")
+        driver.find_element(By.XPATH, "//button[text()='Software']").click()
+        # driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+        time.sleep(3)
+        driver.find_element(By.XPATH, "//button[text()='Fabric Manager']").click()
+        time.sleep(3)
+        driver.find_element(By.XPATH, "//button[text()='Interfaces']").click()
+        time.sleep(5)
+        driver.find_element(By.XPATH, "//img[@src='/static/media/NewAvatar.9ac40ba1.svg']").click()
+        time.sleep(2)
+        driver.find_element(By.XPATH, "//li[@tabindex='-1']").click()
+        time.sleep(2)
+        driver.close()
+
+
+
+# Reset password
+
+    def testsearch(self): 
         driver = self.driver
         driver.find_element(By.XPATH, "//img[@alt='Users Icon']").click()
         time.sleep(2)
@@ -118,7 +175,8 @@ class loginpage(unittest.TestCase):
         driver.find_element(By.XPATH, "//li[@tabindex='-1']").click()
         time.sleep(2)
 
-# reset and confirm password   
+# after reset and confirm password  
+ 
     def testsearch5(self):
         driver = self.driver
         driver.find_element(By.XPATH, "//input[@id='password']").send_keys("aviz@123")
@@ -127,6 +185,7 @@ class loginpage(unittest.TestCase):
         time.sleep(1)
         driver.find_element(By.XPATH, "//button[text()='Reset password']").click()
         time.sleep(2)
+
 
 
     def tearDown(self):
