@@ -3,7 +3,7 @@ import time
 import unittest
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from main import SeleniumTest
+from testcase import SeleniumTest
 
 class TestLoginPage(unittest.TestCase):
     
@@ -19,6 +19,19 @@ class TestLoginPage(unittest.TestCase):
         
     def test_search3(self):
         self.lp.testsearch3()
+    
+    def test_search4(self):
+        self.lp.testsearch4()
+
+    def test_search5(self):
+        self.lp.testsearch5()
+
+    def test_search6(self):
+        self.lp.testsearch6()
+
+    def test_search7(self):
+        self.lp.testsearch7()
+
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestLoginPage)
